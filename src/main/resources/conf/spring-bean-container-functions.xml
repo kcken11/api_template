@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" >
+  	
+	<!-- 用户模块 -->
+	<bean id="userFunctions" class="com.melot.talkee.action.UserFunctions" />
+	
+	<!-- 短信模块 -->
+	<bean id="smsFunctions" class="com.melot.talkee.action.SmsFunctions" />
+	
+	<!-- 文件模块 -->
+	<bean id="fileFunctions" class="com.melot.talkee.action.FileFunctions" />
+		
+	<!-- 课表模块 -->
+	<bean id="lessonFunctions" class="com.melot.talkee.action.LessonFunctions" />
+
+	<!-- 课堂模块 -->
+	<bean id="classFunctions" class="com.melot.talkee.action.ClassFuntions" />
+	
+	<!-- 公共服务模块 -->
+	<bean id="commonFunctions" class="com.melot.talkee.action.CommonFuntions" />
+
+</beans>

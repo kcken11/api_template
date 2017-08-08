@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 示例: id - FunctagId, t - 目标 Function 对象, methodName - 具体业务方法名 -->
+	
+	<!-- 短信发送 -->
+	<bean id="10110101" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="smsFunctions" />
+		<constructor-arg name="methodName" value="sendSms" />
+	</bean>
+	
+	<!-- 短信验证码校验-->
+	<bean id="10110102" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="smsFunctions" />
+		<constructor-arg name="methodName" value="checkVerifyCode" />
+	</bean>
+	
+	<!-- 获取最新版本-->
+	<bean id="10000201" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="commonFunctions" />
+		<constructor-arg name="methodName" value="getLatestVersion" />
+	</bean>
+	
+	<!-- 配置信息-->
+	<bean id="10000202" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="commonFunctions" />
+		<constructor-arg name="methodName" value="getConfigInfo" />
+	</bean>
+	
+	<!-- 手机注册 -->
+	<bean id="20110101" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="userFunctions" />
+		<constructor-arg name="methodName" value="registerViaPhoneNum" />
+	</bean>
+	
+	<!-- 修改用户信息 -->
+	<bean id="20000102" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="userFunctions" />
+		<constructor-arg name="methodName" value="changeUserInfo" />
+	</bean>
+	
+	<!-- 登录 -->
+	<bean id="20110103" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="userFunctions" />
+		<constructor-arg name="methodName" value="login" />
+	</bean>
+		
+	<!-- 修改密码 -->
+	<bean id="20110104" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="userFunctions" />
+		<constructor-arg name="methodName" value="changePwd" />
+	</bean>
+	
+	<!-- 获取用户信息-->
+	<bean id="20110105" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="userFunctions" />
+		<constructor-arg name="methodName" value="getUserInfo" />
+	</bean>
+	
+	<!-- 刷新用户Token-->
+	<bean id="20110106" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="userFunctions" />
+		<constructor-arg name="methodName" value="refreshUserToken" />
+	</bean>
+	
+	<!-- 获取学生顾问（CC\CR）信息-->
+	<bean id="20000107" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="userFunctions" />
+		<constructor-arg name="methodName" value="getAdviserInfo" />
+	</bean>
+
+	<!-- 获取学员详细信息-->
+	<bean id="20000108" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="userFunctions" />
+		<constructor-arg name="methodName" value="getStudentExtraInfos" />
+	</bean>
+	
+	<!-- 阿里oss上传回调 -->
+	<bean id="30110101" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="fileFunctions" />
+		<constructor-arg name="methodName" value="uploadCallback" />
+	</bean>
+
+	<!-- 阿里oss临时授权Token -->
+	<bean id="30110102" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="fileFunctions" />
+		<constructor-arg name="methodName" value="getSecurityToken" />
+	</bean>
+	
+	<!-- 课程发布 -->
+	<bean id="40000101" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="publishLesson" />
+	</bean>
+	<!-- 获取课程每日发布列表 -->
+	<bean id="40000102" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getDailyPublishLesson" />
+	</bean>
+	<!-- 修改课程发布信息 -->
+	<bean id="40000103" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="modifyPublishLesson" />
+	</bean>
+	<!-- 获取课程发布统计 -->
+	<bean id="40000104" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getPublishLessonList" />
+	</bean>
+	
+	
+	<!-- 课程预约 -->
+	<bean id="40000201" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="orderLesson" />
+	</bean>
+	<!-- 获取课程预约列表 -->
+	<bean id="40000202" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getOrderLesson" />
+	</bean>
+	<!-- 取消课程预约 -->
+	<bean id="40000203" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="cancleOrder" />
+	</bean>
+	<!-- 获取学生课程预约列表 -->
+	<bean id="40000204" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getStudentLesson" />
+	</bean>
+
+	<!-- 老师端待上课表 -->
+	<bean id="40000205" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getAwaitLessonList" />
+	</bean>
+
+	<!-- 更新学生请假，老师确认的状态 -->
+	<bean id="40000206" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="updateStudentCancelType" />
+	</bean>
+
+	<!-- 老师端已上课表 -->
+	<bean id="40000207" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getOverLessonList" />
+	</bean>
+
+	<!-- 老师端请假课表 -->
+	<bean id="40000208" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getLeaveLessonList" />
+	</bean>
+	
+	<!-- 获取课件列表 -->
+	<bean id="40110301" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getCourseware" />
+	</bean>
+	
+	
+	<!-- 获取获取课程详细评论 -->
+	<bean id="40000401" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="getDetailComment" />
+	</bean>
+	
+	<!-- 添加课程评论 -->
+	<bean id="40000402" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions" />
+		<constructor-arg name="methodName" value="addComment" />
+	</bean>
+
+	<!-- 获取用户子等级列表 -->
+	<bean id="40000403" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="getUserSubLevelList"/>
+	</bean>
+
+	<!--修改用户当前待上课程-->
+	<bean id="40000404" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="modifyUserCurrentLesson"/>
+	</bean>
+
+	<!--获取课程大等级-->
+	<bean id="40000405" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="getParentLevelList"/>
+	</bean>
+
+	<!--根据课程等级获取课程信息列表-->
+	<bean id="40000406" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="getLessonInfoList"/>
+	</bean>
+	<!--老师添加评语-->
+	<bean id="40000407" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="createTeacherComment"/>
+	</bean>
+
+	<!--查看老师评语-->
+	<bean id="40000408" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="getTeacherCommentInfo"/>
+	</bean>
+	<!--学生添加课堂反馈-->
+	<bean id="40000409" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="createStudentComment"/>
+	</bean>
+
+	<!--老师查看学生课堂反馈-->
+	<bean id="40000410" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="getStudentCommentInfo"/>
+	</bean>
+
+	<!--获取学生小要求配置信息-->
+	<bean id="40000411" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="lessonFunctions"/>
+		<constructor-arg name="methodName" value="getRequirementList"/>
+	</bean>
+
+	<!-- 进入课堂 -->
+	<bean id="50000101" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="classFunctions" />
+		<constructor-arg name="methodName" value="enterClass" />
+	</bean>
+
+	<!-- 退出课堂 -->
+	<bean id="50000102" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="classFunctions" />
+		<constructor-arg name="methodName" value="exitClass" />
+	</bean>
+	
+	<!-- 记录白板信息 -->
+	<bean id="50110103" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="classFunctions" />
+		<constructor-arg name="methodName" value="whiteboardMessage" />
+	</bean>
+
+	<!-- 获取白板信息 -->
+	<bean id="50110104" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="classFunctions" />
+		<constructor-arg name="methodName" value="whiteboardRecord" />
+	</bean>
+
+
+	<!-- 获取课堂信息 -->
+	<bean id="50000105" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="classFunctions" />
+		<constructor-arg name="methodName" value="classInfo" />
+	</bean>
+	<!-- 获取回放信息 -->
+	<bean id="50000106" class="com.melot.sdk.core.function.GenericFunction">
+		<constructor-arg name="t" ref="classFunctions" />
+		<constructor-arg name="methodName" value="recordInfo" />
+	</bean>
+</beans>

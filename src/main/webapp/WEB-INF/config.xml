@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config>
+	<!-- 多终端账号登录上限 -->
+	<accountLoginMax>3</accountLoginMax>
+	<!-- 内部IP -->
+	<insideIp>
+		<ip>192.168.10.137</ip>
+		<ip>10.0.16.59</ip>
+		<ip>10.0.0.1</ip>
+		<ip>10.0.3.23</ip>
+		<ip>10.0.3.1</ip>
+	</insideIp>
+	<excludeFuncTag>
+       <funcTag>40110301</funcTag>
+       <funcTag>50110103</funcTag>
+       <funcTag>50110104</funcTag>
+	</excludeFuncTag>
+</config>

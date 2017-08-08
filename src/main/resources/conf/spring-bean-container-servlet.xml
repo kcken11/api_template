@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context.xsd 
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!--引入配置属性文件 -->  
+    <context:property-placeholder location="" />  
+
+    <!-- 配置扫描的包 -->
+    <context:component-scan base-package="com.melot.talkee.*" />
+    <!-- cat web 请求URL拦截器 -->
+    <context:component-scan base-package="com.melot.sdk.core.soa" />
+
+    <!-- 注册HandlerMapper、HandlerAdapter两个映射类 -->
+    <mvc:annotation-driven />
+
+	 <!-- Redis -->
+	<bean id="redisDataSourceFactory" class="com.melot.common.melot_jedis.RedisDataSourceFactory" destroy-method="destroy">
+		<constructor-arg name="configFilePath" value="conf/JedisPoolConfig.xml"/>
+   	</bean>
+   	<bean id="userRedisSource" class="com.melot.common.melot_jedis.JedisWrapper">
+		<constructor-arg name="factory" ref="redisDataSourceFactory"/>
+		<constructor-arg name="sourceName" value="User"/>
+    </bean>
+    <bean id="smsRedisSource" class="com.melot.common.melot_jedis.JedisWrapper">
+		<constructor-arg name="factory" ref="redisDataSourceFactory"/>
+		<constructor-arg name="sourceName" value="Sms"/>
+    </bean>
+
+</beans>
